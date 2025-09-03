@@ -16,11 +16,15 @@
  - `zoxide remove <path>`
  - `zoxide --version` (for debugging ?)
 - Check implementation of other libraries and get ideas
+ - https://github.com/joshmedeski/sesh/blob/main/zoxide/list.go
 - (Optional) Update score
 - (Optional) Zoxide's Import/Export commands
 - (Optional) Allow specifying binary path
 - (Optional) Detection of env variables and DB path.
+
+# Other Todos
 - (Optional) Linting and Unit tests in CICD
+- Update comments good enough for docs
 
 
 # Q/A
