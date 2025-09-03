@@ -15,11 +15,13 @@
  - `zoxide add <path> -s <score>`
  - `zoxide remove <path>`
  - `zoxide --version` (for debugging ?)
+- Check implementation of other libraries and get ideas
 - (Optional) Update score
 - (Optional) Zoxide's Import/Export commands
 - (Optional) Allow specifying binary path
 - (Optional) Detection of env variables and DB path.
 - (Optional) Linting and Unit tests in CICD
+
 
 # Q/A
 - Global package handles ? Are they bad ?
