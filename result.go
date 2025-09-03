@@ -5,9 +5,11 @@ import (
 	"strings"
 )
 
+// Result represents a single result from a zoxide query.
+// It contains the matched directory path and its score (frequency/recency).
 type Result struct {
-	Score float64
-	Path  string
+	Score float64 // The score assigned by zoxide (higher = more relevant)
+	Path  string  // The full path to the directory
 }
 
 func parseResults(stdout string, withScore bool) ([]Result, error) {
