@@ -6,6 +6,8 @@
 - examples
 - Intuitive calls. WithAll().WithScore()
 - make go.doc have a brief overview 
+- unit tested
+- linter configured
 
 # API
 - Wrapper for 
@@ -17,6 +19,7 @@
 - (Optional) Zoxide's Import/Export commands
 - (Optional) Allow specifying binary path
 - (Optional) Detection of env variables and DB path.
+- (Optional) Linting and Unit tests in CICD
 
 # Q/A
 - Global package handles ? Are they bad ?
