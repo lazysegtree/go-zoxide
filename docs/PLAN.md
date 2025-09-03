@@ -15,8 +15,7 @@
  - `zoxide add <path> -s <score>`
  - `zoxide remove <path>`
  - `zoxide --version` (for debugging ?)
-- Check implementation of other libraries and get ideas
- - https://github.com/joshmedeski/sesh/blob/main/zoxide/list.go
+
 - (Optional) Update score
 - (Optional) Zoxide's Import/Export commands
 - (Optional) Allow specifying binary path
@@ -25,7 +24,8 @@
 # Other Todos
 - (Optional) Linting and Unit tests in CICD
 - Update comments good enough for docs
-
+- [x] Check implementation of other libraries and get ideas
+ - https://github.com/joshmedeski/sesh/blob/main/zoxide/list.go
 
 # Q/A
 - Global package handles ? Are they bad ?
