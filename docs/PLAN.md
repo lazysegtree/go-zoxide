@@ -5,7 +5,6 @@
 - good code, error types, const strings, good documentation
 - examples
 - Intuitive calls. WithAll().WithScore()
-- make go.doc have a brief overview 
 - unit tested
 - linter configured
 
@@ -21,11 +20,15 @@
 - (Optional) Allow specifying binary path
 - (Optional) Detection of env variables and DB path.
 
-# Other Todos
-- (Optional) Linting and Unit tests in CICD
+# Todos for release
 - Update comments good enough for docs
+  - make go.doc have a brief overview via pkg comments 
 - [x] Check implementation of other libraries and get ideas
  - https://github.com/joshmedeski/sesh/blob/main/zoxide/list.go
+
+
+# Other Todos
+- (Optional) Linting and Unit tests in CICD
 
 # Q/A
 - Global package handles ? Are they bad ?

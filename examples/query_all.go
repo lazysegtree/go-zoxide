@@ -14,12 +14,12 @@ func main() {
 	zClient, err := zoxide.New()
 	if err != nil {
 		fmt.Printf("Error while initializing zoxide : %v\n", err)
-		return
+		os.Exit(1)
 	}
 	res, err := zClient.QueryAll(os.Args[1:]...)
 	if err != nil {
 		fmt.Printf("Error while fetching zoxide results : %v\n", err)
-		return
+		os.Exit(2)
 	}
 
 	for _, r := range res {

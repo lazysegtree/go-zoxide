@@ -1,10 +1,8 @@
 package zoxide
 
 import (
-	"context"
 	"errors"
 	"fmt"
-	"os/exec"
 )
 
 func (c *Client) Query(args ...string) (string, error) {
@@ -25,23 +23,14 @@ func (c *Client) QueryAll(args ...string) ([]Result, error) {
 
 func (c *Client) QueryWithOptions(all bool, list bool, score bool,
 	args ...string) ([]Result, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), c.timeout)
-	defer cancel()
 
 	zArgs := append(getZargsForQuery(all, list, score), args...)
-	cmd := exec.CommandContext(ctx, commandName, zArgs...)
 
-	stdout, err := cmd.Output()
+	stdout, err := c.execCmd(zArgs...)
 
-	// TODO: Handle timeout error and no match found error
-	// And return them correctly in Query()
+	// TODO: Improve error handling
 	if err != nil {
-		var exitError *exec.ExitError
-		if errors.As(err, &exitError) {
-			return nil, fmt.Errorf("query command exited with code %d : %w\nstderr : %v",
-				exitError.ExitCode(), err, string(exitError.Stderr))
-		}
-		return nil, fmt.Errorf("query failed due to unexpected command execution error of : %w", err)
+		return nil, fmt.Errorf("query failed due to unexpected command execution error : %w", err)
 	}
 
 	return parseResults(string(stdout), score)

@@ -6,11 +6,29 @@ import (
 
 type Client struct {
 	timeout time.Duration
+	dataDir string
 }
 
-func New() (*Client, error) {
+type ClientOption func(*Client) error
+
+func New(opts ...ClientOption) (*Client, error) {
 	// TODO: Check if zoxide exists in PATH, or return nil
-	return &Client{
+	c := &Client{
 		timeout: defaultExecTimeout,
-	}, nil
+	}
+
+	for _, opt := range opts {
+		if err := opt(c); err != nil {
+			return nil, err
+		}
+	}
+	return c, nil
+}
+
+func WithDataDir(path string) ClientOption {
+	return func(c *Client) error {
+		// TODO : validate path is absolute
+		c.dataDir = path
+		return nil
+	}
 }

@@ -14,7 +14,6 @@ Feature to specify another location will be added soon.
 ## Usage
 
 ```go
-
 	zClient, err := zoxide.New()
 	if err != nil {
 		fmt.Printf("Error while initializing zoxide : %v\n", err)
