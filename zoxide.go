@@ -30,6 +30,7 @@
 package zoxide
 
 import (
+	"os/exec"
 	"time"
 )
 
@@ -59,7 +60,9 @@ type ClientOption func(*Client) error
 //
 // Returns an error if any of the provided options fail to apply.
 func New(opts ...ClientOption) (*Client, error) {
-	// TODO: Check if zoxide exists in PATH, or return nil
+	if _, err := exec.LookPath(commandName); err != nil {
+		return nil, ErrZoxideNotFound
+	}
 	c := &Client{
 		timeout: defaultExecTimeout,
 	}
